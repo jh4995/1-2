@@ -1,0 +1,47 @@
+
+# 50대 남성이면서 heart가 발생한 사람의 정보를 출력
+# tres chol target
+
+first = True
+target = True
+f = open('D:\new\heart')
+agelist = list()
+trestbpslist = list()
+chollist = list()
+targetlist = list()
+
+for line in f:
+    line = line.strip()  
+    items= line.split(',')
+    
+    age = int (items[0])
+    trestbps = int (items[3])
+    chol = int(items[4])
+    target = int(items[13])
+    
+    
+    trestbpslist.append(trestbps)
+    chollist.append(chol)
+    targetlist.append(target)
+    
+    if age<50:
+        continue
+    elif age>=60:
+        continue
+    else:
+        if target == True:
+            print(line)
+            print(items)
+        
+           
+print(min(trestbpslist), max(trestbpslist))
+print(min(chollist), max(chollist))
+print(min(targetlist), max(targetlist))
+    
+        
+    
+    
+    
+    
+
+
