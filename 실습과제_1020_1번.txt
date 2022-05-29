@@ -1,0 +1,31 @@
+
+movie = dict()
+
+with open('movie.txt') as f:
+
+    for line in f:
+        line = line.strip()
+        items = line.split('\t')
+        key = items[1]
+        val = int(items[2])
+        if key in movie:
+            movie[key].append(val)
+        else:
+            movie[key] = [val]
+
+aList=list()
+b = list()
+for title, rates in movie.items():
+    aList.append((title, len(rates), sum(rates)/len(rates)))
+aList.sort(reverse=True, key=lambda x:x[1])
+for x in aList:
+    b.append(x[1])
+    
+maxmovie = aList[0]
+for i in range(1, len(rates)):
+    if maxmovie < aList[i]:
+        maxmovie = aList[i]
+print(maxmovie)
+
+
+
